@@ -1,3 +1,40 @@
+##How to build
+
+- setup your working directory
+```mkdir android/lineageos
+cd android/lineageos
+repo init -u https://github.com/LineageOS/android.git -b cm-14.1
+```
+- create/edit .repo/local_manifests/roomservice.xml to this:
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="googlesource" fetch="https://android.googlesource.com/" revision="nougat-release" />
+  <project name="LineageOS/android_device_samsung_espressowifi" path="device/samsung/espressowifi" remote="github" />
+  <project name="SakiiCode/android_kernel_ti_omap4" path="kernel/ti/omap4" remote="github" />
+  <project name="SakiiCode/android_hardware_ti_omap4" path="hardware/ti/omap4" remote="github" />
+  <project name="TheMuppets/proprietary_vendor_samsung" path="vendor/samsung" remote="github"/>
+  <project name="platform/external/jhead" path="external/jhead" remote="googlesource"/>
+</manifest>
+```
+- sync device code, uncomment android_hardware_ti_omap4 from .repo/manifests/snippets/cm.xml if necessary
+```
+repo sync
+source build/envsetup.sh
+breakfast espressowifi
+```
+- build the rom
+```
+export LC_ALL=C
+croot
+brunch espressowifi
+```
+-profit
+
+
+
+
+
         Linux kernel release 3.x <http://kernel.org/>
 
 These are the release notes for Linux version 3.  Read them carefully,
