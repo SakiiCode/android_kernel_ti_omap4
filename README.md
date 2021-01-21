@@ -1,4 +1,4 @@
-## How to build
+## How to build LineageOS 14.1 for espressowifi (experimental)
 
 - [install build packages](https://wiki.lineageos.org/devices/espressowifi/build#install-the-build-packages)
 
@@ -25,6 +25,10 @@ repo sync
 source build/envsetup.sh
 breakfast espressowifi
 ```
+- add this line to the end of `device/samsung/espressowifi/device-common.mk`
+```
+$(call inherit-product, vendor/samsung/omap4-common/common-vendor.mk)
+```
 - build the rom
 ```
 export LC_ALL=C
@@ -34,7 +38,7 @@ brunch espressowifi
 - profit
 
 
-
+```
 
         Linux kernel release 3.x <http://kernel.org/>
 
@@ -448,3 +452,4 @@ IF SOMETHING GOES WRONG:
    gdb'ing a non-running kernel currently fails because gdb (wrongly)
    disregards the starting offset for which the kernel is compiled.
 
+```
