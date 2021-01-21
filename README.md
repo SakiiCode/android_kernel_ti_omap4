@@ -1,4 +1,6 @@
-##How to build
+## How to build
+
+- [install build packages](https://wiki.lineageos.org/devices/espressowifi/build#install-the-build-packages)
 
 - setup your working directory
 ```mkdir android/lineageos
@@ -29,8 +31,7 @@ export LC_ALL=C
 croot
 brunch espressowifi
 ```
--profit
-
+- profit
 
 
 
